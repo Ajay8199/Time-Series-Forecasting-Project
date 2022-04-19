@@ -1,6 +1,4 @@
 import streamlit as st
-conda install gcc
-conda install -c conda-forge fbprophet 
 import pandas as pd
 import numpy as np
 from fbprophet import Prophet
