@@ -28,17 +28,17 @@ min_value = 1, max_value = 5)
 
 
 if data is not None:
-     obj = Prophet()   
-     obj.fit(appdata)    
+     model = Prophet()   
+     model.fit(appdata)    
 
 st.write("VISUALIZE FORECASTED DATA")  
 st.write("The following plot shows future predicted values. 'yhat' is the  predicted value; upper and lower limits are 80% confidence intervals by  default")
 if data is not None:
      periods=12 *periods_input
-     future = obj.make_future_dataframe(periods, freq='M')
+     future = model.make_future_dataframe(periods, freq='M')
 
 
-fcst = obj.predict(future) 
+fcst = model.predict(future) 
 forecast = fcst[['ds', 'yhat', 'yhat_lower', 'yhat_upper']]
 
 
@@ -46,12 +46,12 @@ forecast_filtered =  forecast[forecast['ds'] > max_date]
 st.write(forecast_filtered)  #Display some forecasted records
 
 st.write("The next visual shows the actual (black dots) and predicted (blue line) values over time.")    
-figure1 = obj.plot(fcst) #plot the actual and predicted values
+figure1 = model.plot(fcst) #plot the actual and predicted values
 
 st.write(figure1)  #display the plot
 
  #Plot the trends using Prophet.plot_components()
 st.write("The following plots show a high level trend of predicted values, day of week trends and yearly trends (if dataset contains multiple years’ data).Blue shaded area represents upper and lower confidence intervals.")
 
-figure2 = obj.plot_components(fcst) 
+figure2 = model.plot_components(fcst) 
 st.write(figure2) 
