@@ -20,7 +20,7 @@ if data is not None:
      st.write(data) #display the data  
      max_date = appdata['ds'].max() #compute latest date in the data 
 
-st.write("SELECT FORECAST PERIOD") #text displayed
+st.write("SELECT FORECAST PERIOD")    #text displayed
 
 periods_input = st.number_input('How many days forecast do you want?',
 min_value = 1, max_value = 5)
@@ -28,8 +28,8 @@ min_value = 1, max_value = 5)
 
 
 if data is not None:
-     obj = Prophet() #Instantiate Prophet object
-     obj.fit(appdata)  #fit the data 
+     obj = Prophet()   
+     obj.fit(appdata)    
 
 st.write("VISUALIZE FORECASTED DATA")  
 st.write("The following plot shows future predicted values. 'yhat' is the  predicted value; upper and lower limits are 80% confidence intervals by  default")
