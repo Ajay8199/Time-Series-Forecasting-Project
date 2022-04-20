@@ -36,9 +36,7 @@ st.write("The following plot shows future predicted values. 'yhat' is the  predi
 if data is not None:
      periods=12 *periods_input
      future = model.make_future_dataframe(periods, freq='M')
-
-
-fcst = model.predict(future) 
+     fcst = model.predict(future) 
 forecast = fcst[['ds', 'yhat', 'yhat_lower', 'yhat_upper']]
 
 
