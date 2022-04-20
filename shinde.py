@@ -38,9 +38,9 @@ if data is not None:
      future = model.make_future_dataframe(periods, freq='M')
      fcst = model.predict(future) 
      forecast = fcst[['ds', 'yhat', 'yhat_lower', 'yhat_upper']]
+     forecast_filtered =  forecast[forecast['ds'] > max_date] 
 
-
-forecast_filtered =  forecast[forecast['ds'] > max_date]    
+     
 st.write(forecast_filtered)  #Display some forecasted records
 
 st.write("The next visual shows the actual (black dots) and predicted (blue line) values over time.")    
