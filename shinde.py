@@ -38,7 +38,7 @@ if data is not None:
      future = obj.make_future_dataframe(periods, freq='M')
 
 
-fcst = obj.predict(future)  #make prediction for the extended data
+fcst = obj.predict(future) 
 forecast = fcst[['ds', 'yhat', 'yhat_lower', 'yhat_upper']]
 
 
