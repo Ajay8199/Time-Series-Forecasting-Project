@@ -15,8 +15,8 @@ st.write("Import the time series CSV file. It should have two columns labelled a
 data = st.file_uploader('Upload here',type='csv')
 
 if data is not None:
-     appdata = pd.read_csv(data)  #read the data fro
-     appdata['ds'] = pd.to_datetime(appdata['ds']) 
+     appdata = pd.read_csv(data,index_col=["ds"])  #read the data fro
+     appdata['ds'] = pd.to_datetime(appdata['ds'],errors='coerce') 
      st.write(data) #display the data  
      max_date = appdata['ds'].max() #compute latest date in the data 
 
