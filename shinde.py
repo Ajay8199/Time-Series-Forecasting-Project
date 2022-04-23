@@ -22,7 +22,7 @@ if data is not None:
 
 st.write("SELECT FORECAST PERIOD")    #text displayed
 
-periods_input = st.number_input('How many days forecast do you want?',
+periods_input = st.number_input('How many years forecast do you want?',
 min_value = 1, max_value = 5)
 #The minimum number of days a user can select is one, while the maximum is  #365 (yearly forecast)
 
